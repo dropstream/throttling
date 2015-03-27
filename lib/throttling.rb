@@ -102,8 +102,12 @@ module Throttling
   end
 
   reset_defaults!
+
+  module Storage
+    autoload :Redis, 'throttling/storage/redis.rb'
+  end
 end
 
 require 'throttling/indifferent_access'
 require 'throttling/base'
-require "throttling/version"
+require 'throttling/version'

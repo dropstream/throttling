@@ -20,9 +20,11 @@ Or install it yourself as:
 
 ## Configuration
 
-You can configure Throttling parameters by accessing attributes of `Throttling` module. Currently it supports only Memcached through `Rails.cache`.
+You can configure Throttling parameters by accessing attributes of `Throttling` module. Currently it supports Memcached through `Rails.cache` and Redis.
 
     Throttling.storage = Rails.cache
+    # Throttling::Storage::Redis.options = url: 'redis://:p4ssw0rd@10.0.1.1:6380/15'
+    # Throttling.storage = Throttling::Storage::Redis.new
     Throttling.logger = Rails.logger
 
 Throttling limits could be stored in a configuration file in `config/throttling.yml`. You can also specify another file to read limits from:
